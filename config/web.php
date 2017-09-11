@@ -19,7 +19,7 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'error/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -37,17 +37,22 @@ $config = [
                 ],
             ],
         ],
-        'db' => require(__DIR__ . '/db.php'),
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+        'db' => require(__DIR__ . '/db.php'),        
+        'urlManager' => require(__DIR__."/router.php")
+        
     ],
     'params' => $params,
+    'modules' => [
+        'web' => [
+            'class' => 'app\modules\web\WebModule',
+        ],
+        'm' => [
+            'class' => 'app\modules\m\MModule',
+        ],
+
+    ],
+
+
 ];
 
 if (YII_ENV_DEV) {
