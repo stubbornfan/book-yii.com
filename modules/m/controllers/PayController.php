@@ -7,7 +7,7 @@ class PayController extends Controller
     //支付页面
     public function actionBuy()
     {
-        $this->layout=false;
+        $this->layout="main";
         return $this->render("buy");
     }
 }

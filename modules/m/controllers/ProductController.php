@@ -4,24 +4,30 @@ use yii\web\Controller;
 
 class ProductController extends Controller
 {
+    public function __construct($id, $module, array $config = [])
+    {
+        parent::__construct($id, $module, $config);
+        $this->layout="main";
+    }
+
     //商品列表
     public function actionIndex()
     {
-        $this->layout=false;
+
         return $this->render('index');
     }
 
     //图书详情
     public function actionInfo()
     {
-        $this->layout=false;
+
         return $this->render("info");
     }
 
     //用户下单
     public function actionOrder()
     {
-        $this->layout=false;
+
         return $this->render("order");
     }
 
