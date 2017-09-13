@@ -1,9 +1,10 @@
 <?php
 namespace app\modules\web\controllers;
+use app\modules\web\controllers\common\BaseController;
 use yii\web\Controller;
 
 
-class BookController extends Controller
+class BookController extends BaseController
 {
 
     public function __construct($id, $module, array $config = [])

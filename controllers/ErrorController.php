@@ -1,10 +1,11 @@
 <?php
 namespace app\controllers;
 
+use app\common\components\BaseWebController;
 use yii\log\FileTarget;
-use yii\web\Controller;
 
-class ErrorController extends Controller{
+
+class ErrorController extends BaseWebController {
 
     //记录错误信息到文件和数据库
     public function actionError(){

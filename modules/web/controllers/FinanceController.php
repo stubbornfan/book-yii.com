@@ -1,8 +1,9 @@
 <?php
 namespace app\modules\web\controllers;
+use app\modules\web\controllers\common\BaseController;
 use yii\web\Controller;
 
-class FinanceController extends Controller
+class FinanceController extends BaseController
 {
 
     public function __construct($id, $module, array $config = [])

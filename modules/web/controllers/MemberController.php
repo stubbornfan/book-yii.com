@@ -1,8 +1,9 @@
 <?php
 namespace app\modules\web\controllers;
+use app\modules\web\controllers\common\BaseController;
 use yii\web\Controller;
 
-class MemberController extends Controller
+class MemberController extends BaseController
 {
 
     public function __construct($id, $module, array $config = [])

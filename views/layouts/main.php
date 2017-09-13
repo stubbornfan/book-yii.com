@@ -1,6 +1,7 @@
 <?php
 //引入前端资源管理的文件
 use app\assets\AppAsset;
+use app\common\services\UrlService;
 AppAsset::register($this);
 
 ?>
@@ -23,9 +24,9 @@ AppAsset::register($this);
     <div class="container">
         <div class="navbar-collapse collapse pull-left">
             <ul class="nav navbar-nav ">
-                <li><a href="http://book.imooc.test/">首页</a></li>
+                <li><a href="<?=UrlService::buildWwwUrl("/"); ?>">首页</a></li>
                 <li><a target="_blank" href="http://www.54php.cn/">博客</a></li>
-                <li><a href="http://book.imooc.test/web/user/login">管理后台</a></li>
+                <li><a href="<?=UrlService::buildWebUrl("/user/login"); ?>">管理后台</a></li>
             </ul>
         </div>
     </div>

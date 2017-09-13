@@ -1,9 +1,10 @@
 <?php
 namespace app\modules\web\controllers;
+use app\modules\web\controllers\common\BaseController;
 use yii\web\Controller;
 
 
-class BrandController extends Controller
+class BrandController extends BaseController
 {
 
     public function __construct($id, $module, array $config = [])
