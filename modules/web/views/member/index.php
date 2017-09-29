@@ -1,23 +1,10 @@
+<?php
+use \app\common\services\StaticService;
+use \app\common\services\UrlService;
+StaticService::includeAppJsStatic("/js/web/member/index.js",app\assets\WebAsset::className());
+?>
+<?php echo \Yii::$app->view->renderFile("@app/modules/web/views/common/tab_member.php", ['current' => 'index']); ?>
 
-
-
-
-
-
-        <div class="row  border-bottom">
-            <div class="col-lg-12">
-                <div class="tab_title">
-                    <ul class="nav nav-pills">
-                        <li  class="current"  >
-                            <a href="/web/member/index">会员列表</a>
-                        </li>
-                        <li  >
-                            <a href="/web/member/comment">会员评论</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
         <div class="row">
             <div class="col-lg-12">
                 <form class="form-inline wrap_search">
@@ -43,7 +30,7 @@
                     <hr/>
                     <div class="row">
                         <div class="col-lg-12">
-                            <a class="btn btn-w-m btn-outline btn-primary pull-right" href="/web/member/set">
+                            <a class="btn btn-w-m btn-outline btn-primary pull-right" href="<?=UrlService::buildWebUrl("/member/set");?>">
                                 <i class="fa fa-plus"></i>会员
                             </a>
                         </div>
@@ -64,8 +51,8 @@
                     <tbody>
                     <tr>
                         <td><img alt="image" class="img-circle" src="/uploads/avatar/20170313/159419a875565b1afddd541fa34c9e65.jpg" style="width: 40px;height: 40px;"></td>
-                        <td>郭威</td>
-                        <td>12312312312</td>
+                        <td></td>
+                        <td></td>
                         <td>未填写</td>
                         <td>正常</td>
                         <td>
@@ -83,14 +70,10 @@
                     </tr>
                     </tbody>
                 </table>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <span class="pagination_count" style="line-height: 40px;">共1条记录 | 每页50条</span>
-                        <ul class="pagination pagination-lg pull-right" style="margin: 0 0 ;">
-                            <li class="active"><a href="javascript:void(0);">1</a></li>
-                        </ul>
-                    </div>
-                </div>
+                <?php echo \Yii::$app->view->renderFile("@app/modules/web/views/common/pagination.php", [
+                    'pages' => $pages,
+                    'url' => '/member/index'
+                ]); ?>
             </div>
         </div>
 

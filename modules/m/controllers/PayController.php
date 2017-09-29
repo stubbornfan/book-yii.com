@@ -1,13 +1,14 @@
 <?php
 namespace app\modules\m\controllers;
-use yii\web\Controller;
+use app\modules\m\controllers\common\BaseController;
 
-class PayController extends Controller
+
+class PayController extends BaseController
 {
     //支付页面
     public function actionBuy()
     {
-        $this->layout="main";
+
         return $this->render("buy");
     }
 }

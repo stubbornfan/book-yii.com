@@ -1,15 +1,10 @@
 <?php
 namespace app\modules\m\controllers;
+use app\modules\m\controllers\common\BaseController;
 use yii\web\Controller;
 
-class UserController extends Controller
+class UserController extends BaseController
 {
-
-    public function __construct($id, $module, array $config = [])
-    {
-        parent::__construct($id, $module, $config);
-        $this->layout="main";
-    }
 
     //账号绑定
     public function actionBind()
