@@ -35,7 +35,7 @@ class BaseWebController extends Controller
     //获取Cookie
     public function getCookie($name,$default_val = ''){
         $cookie = \Yii::$app->request->cookies;
-        $cookie->getValue( $name,$default_val );
+        return $cookie->getValue( $name,$default_val );
     }
 
     //删除Cookie

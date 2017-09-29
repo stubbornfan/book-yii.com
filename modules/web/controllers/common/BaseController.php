@@ -1,7 +1,9 @@
 <?php
 namespace app\modules\web\controllers\common;
 use app\common\components\BaseWebController;
+use app\common\services\applog\AppLogService;
 use app\common\services\UrlService;
+use app\models\log\AppAccessLog;
 use app\models\User;
 
 //web 统一控制器 当中会做一些web独有的验证
@@ -10,6 +12,7 @@ use app\models\User;
 class BaseController extends BaseWebController
 {
     private $auth_cookie_name = "mooc_book";
+    public $current_user = null; //当前登录人信息
     public $allowAllAction =[
       "web/user/login"
     ];
@@ -38,6 +41,9 @@ class BaseController extends BaseWebController
             }
             return false;
         }
+
+        //记录所有用户的访问信息
+        AppLogService::addAppAccessLog($this->current_user['uid']);
         return true;
     }
 
@@ -60,6 +66,9 @@ class BaseController extends BaseWebController
             return false;
         }
 
+        /**
+         *取出用户信息
+         */
         $user_info = User::find()->where(['uid'=>$uid])->one();
         if( !$user_info ){
             return false;
@@ -69,6 +78,9 @@ class BaseController extends BaseWebController
         if( $auth_token != $this->geneAuthToken($user_info) ){
             return false;
         }
+
+        $this->current_user = $user_info;
+
         return true;
 
     }
